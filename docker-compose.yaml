@@ -1,0 +1,13 @@
+services:
+  back:
+    build:
+      context: back/
+    container_name: back
+    network_mode: host
+  front:
+    build:
+      context: front/
+    container_name: front
+    depends_on: [ back ]
+    ports:
+      - "3001:8080"
